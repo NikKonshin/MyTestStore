@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ResponseMain(
-    @SerializedName("_id") val _id: String,
+    @SerializedName("_id") val id: String,
     @SerializedName("home_store") val homeStore: List<ResponseHomeStore>,
     @SerializedName("best_seller") val bestSeller: List<ResponseBestSeller>
 ) : Parcelable, IResponseData
