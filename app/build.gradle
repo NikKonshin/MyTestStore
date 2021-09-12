@@ -3,41 +3,38 @@ plugins {
     id 'kotlin-android'
 }
 
-android {
-    compileSdk 30
-
-    defaultConfig {
-        applicationId "com.nikitakonshin.myteststore"
-        minSdk 21
-        targetSdk 30
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-}
-
 dependencies {
 
+    implementation project(Modules.model)
+    implementation project(Modules.repositories)
+    implementation project(Modules.core)
+
     implementation Kotlin.core
+    implementation Kotlin.stdlib
+    implementation Kotlin.coroutinesAndroid
+    implementation Kotlin.coroutinesCore
+
     implementation Design.appCompat
     implementation Design.material
     implementation Design.constraintLayout
+    implementation Tools.multidex
+
     testImplementation Tests.junit
     androidTestImplementation Tests.ext
     androidTestImplementation Tests.espresso
+
+    implementation Koin.koinAndroid
+    implementation Koin.koinCore
+    implementation Koin.koinViewModel
+
+    implementation Retrofit.retrofit
+    implementation Retrofit.converterGson
+    implementation Retrofit.coroutinesAdapter
+    implementation Retrofit.loggingInterceptor
+
+    implementation ViewBindingLibrary.viewBinding
+}
+
+repositories {
+    mavenCentral()
 }
