@@ -1,11 +1,12 @@
-package com.nikitakonshin.model.entities.productdetails
+package com.nikitakonshin.model.entities.responce.productdetails
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.nikitakonshin.model.entities.responce.IResponseData
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class ProductDetails(
+data class ResponseProductDetails(
     @SerializedName("_id") val id : String,
     @SerializedName("images") val images : List<String>,
     @SerializedName("is_favorites") val isFavorites : Boolean,
@@ -18,4 +19,4 @@ data class ProductDetails(
     @SerializedName("color") val color : List<String>,
     @SerializedName("capacity") val capacity : List<String>,
     @SerializedName("price") val price : Int
-):Parcelable
+):Parcelable, IResponseData
