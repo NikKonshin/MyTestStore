@@ -33,6 +33,8 @@ dependencies {
     implementation Retrofit.loggingInterceptor
 
     implementation ViewBindingLibrary.viewBinding
+
+    implementation Cicerone.cicerone
 }
 
 repositories {

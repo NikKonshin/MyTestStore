@@ -16,9 +16,6 @@ object Versions {
     const val material = "1.4.0"
     const val constraintLayout = "2.1.0"
 
-    //Cicerone
-    const val cicerone = "6.6"
-
     //Retrofit
     const val retrofit = "2.9.0"
     const val converterGson = "2.9.0"
@@ -41,6 +38,9 @@ object Versions {
 
     // ViewBinding
     const val viewBinding = "1.4.7"
+
+    //Cicerone
+    const val cicerone = "6.6"
 }
 
 object Kotlin {
@@ -80,6 +80,10 @@ object Koin {
     const val koinCore = "io.insert-koin:koin-core:${Versions.koinCore}"
     const val koinAndroid = "io.insert-koin:koin-android:${Versions.koinAndroid}"
     const val koinViewModel = "io.insert-koin:koin-android-viewmodel:${Versions.koinViewModel}"
+}
+
+object Cicerone {
+    const val cicerone = "com.github.terrakok:cicerone:${Versions.cicerone}"
 }
 
 object Modules {
