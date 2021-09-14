@@ -11,7 +11,7 @@ import com.nikitakonshin.myteststore.view_model.MyCartViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MyCartFragment :
-    BaseFragment<FragmentMyCartBinding, List<Cart>, MyCartViewModel>(R.layout.fragment_my_cart) {
+    BaseFragment<FragmentMyCartBinding, Cart, MyCartViewModel>(R.layout.fragment_my_cart) {
     override val viewBinding: FragmentMyCartBinding by viewBinding()
     override val viewModel: MyCartViewModel by viewModel()
 
@@ -20,5 +20,5 @@ class MyCartFragment :
         viewModel.getData()
     }
 
-    override fun renderSuccess(data: List<Cart>) {}
+    override fun renderSuccess(data: Cart) {}
 }

@@ -6,9 +6,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.nikitakonshin.core.view_model.BaseViewModel
+import com.nikitakonshin.model.entities.local.ILocalData
 import com.nikitakonshin.model.state.AppState
 
-abstract class BaseFragment<VB : ViewBinding, T, VM : BaseViewModel<T>>(layout: Int) :
+abstract class BaseFragment<VB : ViewBinding, T : ILocalData, VM : BaseViewModel<T>>(layout: Int) :
     Fragment(layout) {
 
     protected abstract val viewBinding: VB?

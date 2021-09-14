@@ -6,5 +6,5 @@ import com.nikitakonshin.repositories.repositories.MainRepository
 class MainInteractorImpl(private val repository: MainRepository) :
     MainInteractor {
 
-    override suspend fun getMain(): List<Main> = repository.getMain()
+    override suspend fun getMain(): Main = repository.getMain()
 }

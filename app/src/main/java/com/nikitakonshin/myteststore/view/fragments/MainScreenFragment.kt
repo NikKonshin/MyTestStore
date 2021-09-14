@@ -13,7 +13,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class MainScreenFragment :
     BaseFragment<
             FragmentMainScreenBinding,
-            List<Main>,
+            Main,
             MainScreenViewModel
             >(R.layout.fragment_main_screen) {
 
@@ -32,5 +32,5 @@ class MainScreenFragment :
         viewModel.cancelJob()
     }
 
-    override fun renderSuccess(data: List<Main>) {}
+    override fun renderSuccess(data: Main) {}
 }

@@ -3,5 +3,5 @@ package com.nikitakonshin.repositories.interactors
 import com.nikitakonshin.model.entities.local.main.Main
 
 interface MainInteractor {
-    suspend fun getMain(): List<Main>
+    suspend fun getMain(): Main
 }

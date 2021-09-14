@@ -15,7 +15,9 @@ class App:  MultiDexApplication(){
                 dataSourceModule,
                 viewModelModule,
                 repositoryModule,
-                interactorModule
+                interactorModule,
+                ciceroneModule,
+                navigationModule
                 )
         }
     }

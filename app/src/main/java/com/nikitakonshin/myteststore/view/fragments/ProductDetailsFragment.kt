@@ -11,7 +11,7 @@ import com.nikitakonshin.myteststore.view_model.ProductDetailsViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProductDetailsFragment :
-    BaseFragment<FragmentProductDetailsBinding, List<ProductDetails>, ProductDetailsViewModel>(
+    BaseFragment<FragmentProductDetailsBinding, ProductDetails, ProductDetailsViewModel>(
         R.layout.fragment_product_details
     ) {
 
@@ -23,5 +23,5 @@ class ProductDetailsFragment :
         viewModel.getData()
     }
 
-    override fun renderSuccess(data: List<ProductDetails>) {}
+    override fun renderSuccess(data: ProductDetails) {}
 }
