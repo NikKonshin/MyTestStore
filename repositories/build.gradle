@@ -13,4 +13,7 @@ dependencies {
     implementation Retrofit.converterGson
     implementation Retrofit.coroutinesAdapter
     implementation Retrofit.loggingInterceptor
+
+    implementation Glide.glide
+    implementation Glide.glideCompiler
 }

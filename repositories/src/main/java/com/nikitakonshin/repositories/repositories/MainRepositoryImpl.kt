@@ -33,8 +33,8 @@ class MainRepositoryImpl(private val dataSource: RemoteDataSource) :
                 id = responseBestSeller.id,
                 isFavorites = responseBestSeller.isFavorites,
                 title = responseBestSeller.title,
-                priceWithoutDiscount = responseBestSeller.priceWithoutDiscount,
-                discountPrice = responseBestSeller.discountPrice,
+                priceWithoutDiscount = responseBestSeller.discountPrice,
+                discountPrice = responseBestSeller.priceWithoutDiscount,
                 picture = responseBestSeller.picture
             )
         }

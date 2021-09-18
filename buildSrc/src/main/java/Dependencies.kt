@@ -8,9 +8,6 @@ object Versions {
     const val coroutinesCore = "1.5.1"
     const val coroutinesAndroid = "1.5.1"
 
-    //Tools
-    const val multidex = "2.0.1"
-
     //Design
     const val appcompat = "1.3.1"
     const val material = "1.4.0"
@@ -28,8 +25,8 @@ object Versions {
     const val koinViewModel = "2.2.3"
 
     //Glide
-    const val glide = "4.9.0"
-    const val glideCompiler = "4.9.0"
+    const val glide = "4.12.0"
+    const val glideCompiler = "4.12.0"
 
     //Test
     const val jUnit = "4.12"
@@ -95,7 +92,7 @@ object Modules {
 object Config {
     const val kotlinVersion = "1.5.30"
     const val compileSdk = 30
-    const val minSdk = 21
+    const val minSdk = 24
     const val targetSdk = 30
     const val versionCode = 1
     const val versionName = "1.0"
@@ -108,6 +105,9 @@ object ViewBindingLibrary {
         "com.github.kirich1409:viewbindingpropertydelegate:${Versions.viewBinding}"
 }
 
-object Tools {
-    const val multidex = "com.android.support:multidex:${Versions.multidex}"
+
+object Glide {
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
+
 }

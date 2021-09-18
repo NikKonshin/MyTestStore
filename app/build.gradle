@@ -17,7 +17,6 @@ dependencies {
     implementation Design.appCompat
     implementation Design.material
     implementation Design.constraintLayout
-    implementation Tools.multidex
 
     testImplementation Tests.junit
     androidTestImplementation Tests.ext
@@ -35,6 +34,16 @@ dependencies {
     implementation ViewBindingLibrary.viewBinding
 
     implementation Cicerone.cicerone
+}
+
+android {
+    sourceSets {
+        main {
+            assets {
+                srcDirs 'src\\main\\assets'
+            }
+        }
+    }
 }
 
 repositories {

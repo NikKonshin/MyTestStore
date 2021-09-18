@@ -3,9 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/layout/fragment_main_screen.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_books_image.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_books_image_selected.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_computer_image.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_computer_image_selected.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_health_image.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_health_image_selected.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_phone_image.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_phones_image.xml" value="0.2611111111111111" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/category_phones_image_selected.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/catigory_phone.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/drawable/main_cart.xml" value="0.2361111111111111" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/layout/fragment_main_screen.xml" value="0.1" />
         <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/layout/fragment_my_cart.xml" value="0.1109375" />
         <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/layout/fragment_product_details.xml" value="0.1109375" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/layout/item_best_seller.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/layout/item_categories_main_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/layout/item_hot_sales.xml" value="0.6" />
+        <entry key="..\:/Users/konbs/MyProjectAndroid/MyTestStore/app/src/main/res/layout/test1.xml" value="0.13020833333333334" />
       </map>
     </option>
   </component>

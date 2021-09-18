@@ -30,6 +30,10 @@ abstract class BaseViewModel<T: ILocalData> : ViewModel() {
         }
     }
 
+    protected fun showLoading(){
+        _liveData.value = AppState.Loading()
+    }
+
     override fun onCleared() {
         super.onCleared()
         cancelJob()

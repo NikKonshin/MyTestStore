@@ -2,6 +2,8 @@ package com.nikitakonshin.myteststore.di
 
 import com.nikitakonshin.repositories.data_source.RemoteDataSource
 import com.nikitakonshin.repositories.data_source.RemoteDataSourceImpl
+import com.nikitakonshin.repositories.image_loader.GlideImageLoader
+import com.nikitakonshin.repositories.image_loader.ImageLoader
 import com.nikitakonshin.repositories.interactors.*
 import com.nikitakonshin.repositories.repositories.*
 import org.koin.dsl.module
@@ -22,4 +24,7 @@ val interactorModule = module {
     single<MainInteractor> { MainInteractorImpl(get()) }
     single<MyCartInteractor> { MyCartInteractorImpl(get()) }
     single<ProductDetailsInteractor> { ProductDetailsInteractorImpl(get()) }
+}
+val imageModule = module {
+    single<ImageLoader> { GlideImageLoader()}
 }

@@ -13,6 +13,7 @@ class MainScreenViewModel(
     BaseViewModel<Main>() {
 
     fun getData() = runAsync {
+        showLoading()
         _liveData.value = AppState.Success(interactor.getMain())
     }
 }
