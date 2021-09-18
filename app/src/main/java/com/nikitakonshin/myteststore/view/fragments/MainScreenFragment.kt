@@ -2,8 +2,13 @@ package com.nikitakonshin.myteststore.view.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import androidx.annotation.ArrayRes
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.nikitakonshin.core.adapter.BaseAdapter
 import com.nikitakonshin.core.adapter.BaseItemListener
 import com.nikitakonshin.core.adapter.HorizontalItemDecoration
@@ -34,6 +39,7 @@ class MainScreenFragment :
     private var adapterHotSales: BaseAdapter<HomeStore, BaseItemListener>? = null
     private var adapterBestSeller: BaseAdapter<BestSeller, BaseItemListener>? = null
     private val imageLoader: ImageLoader by inject()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,6 +76,45 @@ class MainScreenFragment :
         initRVCategory()
         initRVBestSeller()
         initRVHotSales()
+        initBottomSheet()
+        initSpinner(viewBinding.bottomSheet.spinnerBrand, R.array.brand_phone_array)
+        initSpinner(viewBinding.bottomSheet.spinnerPrice, R.array.price_phone_array)
+        initSpinner(viewBinding.bottomSheet.spinnerSize, R.array.size_phone_array)
+
+    }
+
+    private fun initSpinner(spinner: Spinner, @ArrayRes textArrayResId: Int) {
+        ArrayAdapter.createFromResource(
+            this.requireContext(),
+            textArrayResId,
+            R.layout.item_spinner
+        ).also { adapter ->
+            adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
+    }
+
+    private fun initBottomSheet() {
+        val bottomSheetDialogFragment =
+            BottomSheetBehavior.from(viewBinding.bottomSheet.bottomSheetMainScreen)
+
+        createListenerFilter(bottomSheetDialogFragment)
+
+        with(viewBinding.bottomSheet) {
+            ivCloseContainer.setOnClickListener {
+                bottomSheetDialogFragment.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        }
+    }
+
+    private fun createListenerFilter(bottomSheetDialogFragment: BottomSheetBehavior<CardView>) {
+        viewBinding.ivFilter.setOnClickListener {
+            if (bottomSheetDialogFragment.state != BottomSheetBehavior.STATE_EXPANDED) {
+                bottomSheetDialogFragment.state = BottomSheetBehavior.STATE_EXPANDED
+            } else {
+                bottomSheetDialogFragment.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        }
     }
 
     private fun initRVHotSales() {

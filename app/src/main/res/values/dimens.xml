@@ -56,5 +56,24 @@
     <dimen name="margin_end_container_for_view_navigation_view">27dp</dimen>
     <dimen name="width_iv_favorites">19dp</dimen>
     <dimen name="height_iv_favorites">17dp</dimen>
+    <dimen name="text_size_bottom_sheet_main_screen">18sp</dimen>
+    <dimen name="height_spinner_brand">37dp</dimen>
+    <dimen name="margin_start_spinner_brand">46dp</dimen>
+    <dimen name="margin_end_spinner_brand">31dp</dimen>
+    <dimen name="margin_top_spinner_brand">10dp</dimen>
+    <dimen name="text_size_spinner_Item">18sp</dimen>
+    <dimen name="height_spinner_drop_item">40dp</dimen>
+    <dimen name="margin_bottom_spinner_size">44dp</dimen>
+    <dimen name="margin_top_tv_brand">40dp</dimen>
+    <dimen name="margin_end_circle_explorer">7dp</dimen>
+    <dimen name="margin_top_tv_size">15dp</dimen>
+    <dimen name="margin_top_tv_price">15dp</dimen>
+    <dimen name="width_iv_done_container">86dp</dimen>
+    <dimen name="height_iv_done_container">37dp</dimen>
+    <dimen name="margin_end_iv_done_container">20dp</dimen>
+    <dimen name="size_iv_close_container">37dp</dimen>
+    <dimen name="margin_start_iv_close_container">44dp</dimen>
+    <dimen name="margin_top_iv_close_container">27dp</dimen>
+    <dimen name="radius_card_bottom_sheet">30dp</dimen>
 
 </resources>
