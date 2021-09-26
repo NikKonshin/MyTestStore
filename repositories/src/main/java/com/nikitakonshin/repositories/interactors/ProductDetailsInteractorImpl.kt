@@ -6,5 +6,6 @@ import com.nikitakonshin.repositories.repositories.ProductDetailsRepository
 class ProductDetailsInteractorImpl(private val repository: ProductDetailsRepository) :
     ProductDetailsInteractor {
 
-    override suspend fun getProductDetails(): ProductDetails = repository.getProductDetails()
+    override suspend fun getProductDetails(id: String): ProductDetails? =
+        repository.getProductDetails(id)
 }

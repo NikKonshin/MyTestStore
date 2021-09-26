@@ -13,4 +13,11 @@
     <color name="gray">#B3B3C3</color>
     <color name="background_container">#E5E5E5</color>
     <color name="light_gray">#CCCCCC</color>
+    <color name="black_light">#80000000</color>
+    <color name="dark_gray">#B7B7B7</color>
+    <color name="shade_gray">#8D8D8D</color>
+    <color name="white_transparent">#33FFFFFF</color>
+    <color name="color_stars">#FFB800</color>
+    <color name="color_test">#2E0791</color>
+
 </resources>

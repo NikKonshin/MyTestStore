@@ -14,6 +14,10 @@ class MainScreenViewModel(
 
     fun getData() = runAsync {
         showLoading()
-        _liveData.value = AppState.Success(interactor.getMain())
+        _liveData.postValue(AppState.Success(interactor.getMain()))
+    }
+
+    fun toProductDetailsScreen(id: String){
+        navigator.toProductDetailsScreen(id)
     }
 }

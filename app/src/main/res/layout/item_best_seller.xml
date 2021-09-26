@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_rv_best_seller"
     style="@style/ContainerBestSellerItem">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,6 +12,7 @@
             android:id="@+id/iv_phone_best_seller"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_iv_phone_best_seller"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

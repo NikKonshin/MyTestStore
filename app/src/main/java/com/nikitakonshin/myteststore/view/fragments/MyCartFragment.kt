@@ -7,18 +7,59 @@ import com.nikitakonshin.core.view.BaseFragment
 import com.nikitakonshin.model.entities.local.cart.Cart
 import com.nikitakonshin.myteststore.R
 import com.nikitakonshin.myteststore.databinding.FragmentMyCartBinding
+import com.nikitakonshin.myteststore.view.adapters.CartAdapter
 import com.nikitakonshin.myteststore.view_model.MyCartViewModel
+import com.nikitakonshin.repositories.image_loader.ImageLoader
+import com.nikitakonshin.utills.parseIntToPriceForMyCart
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MyCartFragment :
     BaseFragment<FragmentMyCartBinding, Cart, MyCartViewModel>(R.layout.fragment_my_cart) {
     override val viewBinding: FragmentMyCartBinding by viewBinding()
     override val viewModel: MyCartViewModel by viewModel()
+    private var adapter: CartAdapter? = null
+
+    private val imageLoader: ImageLoader by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getData()
+        init()
     }
 
-    override fun renderSuccess(data: Cart) {}
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.cancelJob()
+    }
+
+    private fun init() {
+        initAdapter()
+
+        with(viewBinding) {
+            buttonBackContainerMyCart.setOnClickListener {
+                viewModel.onBackPressed()
+            }
+        }
+    }
+
+    private fun initAdapter() {
+        adapter = CartAdapter(imageLoader)
+
+        adapter?.let {
+            viewBinding.bottomSheetMyCart.rvMyCart.adapter = it
+        }
+    }
+
+    override fun renderSuccess(data: Cart) {
+        initView(data)
+    }
+
+    private fun initView(data: Cart){
+        data.basket?.let { adapter?.submitList(it) }
+        with(viewBinding.bottomSheetMyCart) {
+            tvTotalValueMyCart.text = parseIntToPriceForMyCart(data.total ?: 0)
+            tvDeliveryValueMyCart.text = data.delivery
+        }
+    }
 }

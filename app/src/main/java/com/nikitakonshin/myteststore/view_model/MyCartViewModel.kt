@@ -13,6 +13,10 @@ class MyCartViewModel(
     BaseViewModel<Cart>() {
 
     fun getData() = runAsync {
-        _liveData.value = AppState.Success(interactor.getCart())
+        _liveData.postValue(AppState.Success(interactor.getCart()))
+    }
+
+    fun onBackPressed(){
+        navigator.onBackPressed()
     }
 }

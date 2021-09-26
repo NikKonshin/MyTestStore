@@ -11,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.nikitakonshin.core.adapter.BaseAdapter
 import com.nikitakonshin.core.adapter.BaseItemListener
+import com.nikitakonshin.myteststore.view.adapters.listeners.BestSellerItemListener
 import com.nikitakonshin.core.adapter.HorizontalItemDecoration
 import com.nikitakonshin.core.view.BaseFragment
 import com.nikitakonshin.model.entities.local.main.BestSeller
@@ -18,11 +19,12 @@ import com.nikitakonshin.model.entities.local.main.HomeStore
 import com.nikitakonshin.model.entities.local.main.Main
 import com.nikitakonshin.myteststore.R
 import com.nikitakonshin.myteststore.databinding.FragmentMainScreenBinding
-import com.nikitakonshin.myteststore.view.CategoriesRVAdapter
+import com.nikitakonshin.myteststore.view.adapters.CategoriesRVAdapter
 import com.nikitakonshin.myteststore.view.binds.bindBestSeller
 import com.nikitakonshin.myteststore.view.binds.bindHotSales
 import com.nikitakonshin.myteststore.view_model.MainScreenViewModel
 import com.nikitakonshin.repositories.image_loader.ImageLoader
+import com.nikitakonshin.utills.constants.PHONES_CATEGORY_ID
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -37,7 +39,7 @@ class MainScreenFragment :
     override val viewModel: MainScreenViewModel by viewModel()
 
     private var adapterHotSales: BaseAdapter<HomeStore, BaseItemListener>? = null
-    private var adapterBestSeller: BaseAdapter<BestSeller, BaseItemListener>? = null
+    private var adapterBestSeller: BaseAdapter<BestSeller, BestSellerItemListener>? = null
     private val imageLoader: ImageLoader by inject()
 
 
@@ -54,15 +56,11 @@ class MainScreenFragment :
 
     override fun getActiveItem(categoryId: Int) {
         when (categoryId) {
-            0 -> {
+            PHONES_CATEGORY_ID -> {
                 viewModel.getData()
             }
             else -> {
-                with(viewBinding) {
-                    adapterHotSales?.setData(listOf())
-                    adapterBestSeller?.setData(listOf())
-                    hideProducts()
-                }
+                initEmptyLists()
             }
         }
     }
@@ -118,7 +116,7 @@ class MainScreenFragment :
     }
 
     private fun initRVHotSales() {
-        adapterHotSales = BaseAdapter<HomeStore, BaseItemListener>(
+        adapterHotSales = BaseAdapter(
             R.layout.item_hot_sales,
             listener
         ) { view, data, listener ->
@@ -129,15 +127,16 @@ class MainScreenFragment :
             adapterHotSales?.let {
                 adapter = it
             }
-            addItemDecoration(HorizontalItemDecoration(30, 25))
+            addItemDecoration(HorizontalItemDecoration(DIVIDER_HOT_SALES, EDGE_MARGIN_HOT_SALES))
         }
     }
 
     private fun initRVBestSeller() {
-        viewBinding.rvBestSeller.layoutManager = GridLayoutManager(this.context, 2)
-        adapterBestSeller = BaseAdapter<BestSeller, BaseItemListener>(
+        viewBinding.rvBestSeller.layoutManager =
+            GridLayoutManager(this.context, SPAN_COUNT_DEST_SELLER)
+        adapterBestSeller = BaseAdapter(
             R.layout.item_best_seller,
-            listener
+            listenerBestSeller
         ) { view, data, listener ->
             bindBestSeller(view, data, listener, imageLoader)
         }
@@ -146,10 +145,18 @@ class MainScreenFragment :
         }
     }
 
+    private fun initEmptyLists() {
+        with(viewBinding) {
+            adapterHotSales?.setData(listOf())
+            adapterBestSeller?.setData(listOf())
+            hideProducts()
+        }
+    }
+
     private fun initRVCategory() {
         with(viewBinding.rvCategory) {
             adapter = CategoriesRVAdapter(this@MainScreenFragment)
-            addItemDecoration(HorizontalItemDecoration(23, 27))
+            addItemDecoration(HorizontalItemDecoration(DIVIDER_CATEGORY, EDGE_MARGIN_CATEGORY))
         }
     }
 
@@ -177,4 +184,18 @@ class MainScreenFragment :
     }
 
     private val listener = object : BaseItemListener {}
+
+    private val listenerBestSeller = object : BestSellerItemListener {
+        override fun itemListener(id: String) {
+            viewModel.toProductDetailsScreen(id)
+        }
+    }
+
+    companion object {
+        private const val DIVIDER_CATEGORY = 23
+        private const val EDGE_MARGIN_CATEGORY = 27
+        private const val DIVIDER_HOT_SALES = 30
+        private const val EDGE_MARGIN_HOT_SALES = 25
+        private const val SPAN_COUNT_DEST_SELLER = 2
+    }
 }

@@ -1,4 +1,4 @@
-package com.nikitakonshin.myteststore.view
+package com.nikitakonshin.myteststore.view.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,43 +7,47 @@ import com.nikitakonshin.model.entities.categories.Category
 import com.nikitakonshin.myteststore.R
 import com.nikitakonshin.myteststore.databinding.ItemCategoriesMainScreenBinding
 import com.nikitakonshin.myteststore.view.fragments.ItemStateListener
+import com.nikitakonshin.utills.constants.BOOKS_CATEGORY_ID
+import com.nikitakonshin.utills.constants.COMPUTER_CATEGORY_ID
+import com.nikitakonshin.utills.constants.HEALTH_CATEGORY_ID
+import com.nikitakonshin.utills.constants.PHONES_CATEGORY_ID
 
 class CategoriesRVAdapter(private val itemStateListener: ItemStateListener) :
     RecyclerView.Adapter<CategoriesRVAdapter.ViewHolder>() {
 
     private val categories = listOf(
         Category(
-            PHONES_ID,
+            PHONES_CATEGORY_ID,
             R.drawable.category_phones_image,
-            "Phones",
+            R.string.category_phones,
             true
         ),
         Category(
-            COMPUTER_ID,
+            COMPUTER_CATEGORY_ID,
             R.drawable.category_computer_image,
-            "Computer"
+            R.string.category_computers
         ),
         Category(
-            HEALTH_ID,
+            HEALTH_CATEGORY_ID,
             R.drawable.category_health_image,
-            "Health"
+            R.string.category_heals
         ),
         Category(
-            BOOKS_ID,
+            BOOKS_CATEGORY_ID,
             R.drawable.category_books_image,
-            "Books"
+            R.string.category_books
         ),
         Category(
-            PHONES_ID,
+            PHONES_CATEGORY_ID,
             R.drawable.category_phones_image,
-            "Phones"
+            R.string.category_phones
         ),
     )
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CategoriesRVAdapter.ViewHolder {
+    ): ViewHolder {
         val binding = ItemCategoriesMainScreenBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
@@ -117,32 +121,25 @@ class CategoriesRVAdapter(private val itemStateListener: ItemStateListener) :
         private fun initView(category: Category) {
             with(binding) {
                 ivIconCategories.setImageResource(category.imageRes)
-                descriptionItemCategory.text = category.description
+                descriptionItemCategory.text = context.resources.getString(category.description)
             }
         }
 
         private fun setImageIcon(id: Int) {
             when (id) {
-                PHONES_ID -> {
+                PHONES_CATEGORY_ID -> {
                     binding.ivIconCategories.setImageResource(R.drawable.category_phones_image_selected)
                 }
-                COMPUTER_ID -> {
+                COMPUTER_CATEGORY_ID -> {
                     binding.ivIconCategories.setImageResource(R.drawable.category_computer_image_selected)
                 }
-                HEALTH_ID -> {
+                HEALTH_CATEGORY_ID -> {
                     binding.ivIconCategories.setImageResource(R.drawable.category_health_image_selected)
                 }
-                BOOKS_ID -> {
+                BOOKS_CATEGORY_ID -> {
                     binding.ivIconCategories.setImageResource(R.drawable.category_books_image_selected)
                 }
             }
         }
-    }
-
-    companion object {
-        private const val PHONES_ID = 0
-        private const val COMPUTER_ID = 1
-        private const val HEALTH_ID = 2
-        private const val BOOKS_ID = 3
     }
 }

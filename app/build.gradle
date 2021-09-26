@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+
 }
 
 dependencies {
@@ -8,6 +9,7 @@ dependencies {
     implementation project(Modules.model)
     implementation project(Modules.repositories)
     implementation project(Modules.core)
+    implementation project(Modules.utils)
 
     implementation Kotlin.core
     implementation Kotlin.stdlib
@@ -17,6 +19,8 @@ dependencies {
     implementation Design.appCompat
     implementation Design.material
     implementation Design.constraintLayout
+
+    implementation DiscreteScrollView.discreteScrollView
 
     testImplementation Tests.junit
     androidTestImplementation Tests.ext
@@ -34,16 +38,6 @@ dependencies {
     implementation ViewBindingLibrary.viewBinding
 
     implementation Cicerone.cicerone
-}
-
-android {
-    sourceSets {
-        main {
-            assets {
-                srcDirs 'src\\main\\assets'
-            }
-        }
-    }
 }
 
 repositories {

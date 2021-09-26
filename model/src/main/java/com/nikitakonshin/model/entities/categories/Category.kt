@@ -1,8 +1,11 @@
 package com.nikitakonshin.model.entities.categories
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+
 data class Category(
     val id: Int,
-    val imageRes: Int,
-    val description: String,
+    @DrawableRes val imageRes: Int,
+    @StringRes val description: Int,
     var isSelected: Boolean = false
 )

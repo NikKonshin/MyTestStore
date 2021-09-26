@@ -11,7 +11,16 @@ class ProductDetailsViewModel(
     private val navigator: ProductDetailsNavigator
 ) :
     BaseViewModel<ProductDetails>() {
-    fun getData() = runAsync {
-        _liveData.value = AppState.Success(interactor.getProductDetails())
+    fun getData(id: String) = runAsync {
+        val data = interactor.getProductDetails(id)
+        data?.let { _liveData.postValue(AppState.Success(it)) }
+    }
+
+    fun onBackPressed() {
+        navigator.onBackPressed()
+    }
+
+    fun toMyCartScreen() {
+        navigator.toMyCartFragment()
     }
 }

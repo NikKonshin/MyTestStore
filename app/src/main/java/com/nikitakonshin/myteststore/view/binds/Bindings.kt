@@ -10,8 +10,10 @@ import com.nikitakonshin.model.entities.local.main.HomeStore
 import com.nikitakonshin.myteststore.R
 import com.nikitakonshin.myteststore.databinding.ItemBestSellerBinding
 import com.nikitakonshin.myteststore.databinding.ItemHotSalesBinding
+import com.nikitakonshin.myteststore.databinding.ItemPhotoPhoneBinding
+import com.nikitakonshin.myteststore.view.adapters.listeners.BestSellerItemListener
 import com.nikitakonshin.repositories.image_loader.ImageLoader
-import java.lang.StringBuilder
+import com.nikitakonshin.utills.mapIntToPriceForBestSeller
 
 internal fun bindHotSales(
     view: View,
@@ -38,18 +40,21 @@ internal fun bindHotSales(
 internal fun bindBestSeller(
     view: View,
     data: BestSeller,
-    listener: BaseItemListener,
+    listener: BestSellerItemListener,
     imageLoader: ImageLoader
 ) {
     val binding: ItemBestSellerBinding = ItemBestSellerBinding.bind(view)
-    val discountPrise = mapIntToPrice(data.discountPrice?:0)
-    val priceWithoutDiscount = mapIntToPrice(data.priceWithoutDiscount?:0)
+    val discountPrise = mapIntToPriceForBestSeller(data.discountPrice ?: 0)
+    val priceWithoutDiscount = mapIntToPriceForBestSeller(data.priceWithoutDiscount ?: 0)
     val uri = data.picture
     val isFavorites = data.isFavorites ?: false
     val title = data.title
 
     val span = SpannableString(priceWithoutDiscount)
     span.setSpan(StrikethroughSpan(), 0, span.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+    view.setOnClickListener {
+        listener.itemListener(data.id.toString())
+    }
 
     with(binding) {
         uri?.let { imageLoader.loadImage(it, ivPhoneBestSeller) }
@@ -60,15 +65,12 @@ internal fun bindBestSeller(
     }
 }
 
-private fun mapIntToPrice(price: Int): String {
-    val newPrice: String =
-        if (price >= 1000) {
-            val strPrise = StringBuilder(price.toString())
-            strPrise.insert(1,",")
-            strPrise.toString()
-        } else {
-            price.toString()
-        }
-
-    return  "$$newPrice"
+fun bindProductDetails(
+    view: View,
+    data: String,
+    listener: BaseItemListener,
+    imageLoader: ImageLoader
+) {
+    val binding = ItemPhotoPhoneBinding.bind(view)
+    imageLoader.loadImage(data, binding.ivPhoneItemPhotoPhone)
 }

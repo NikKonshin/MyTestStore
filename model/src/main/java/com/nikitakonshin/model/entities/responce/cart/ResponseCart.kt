@@ -7,8 +7,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ResponseCart(
-    @SerializedName("_id") val id : String,
-    @SerializedName("basket") val basket : List<ResponseBasket>,
-    @SerializedName("total") val total : Int,
-    @SerializedName("Delivery") val delivery : String
-):Parcelable, IResponseData
+    @SerializedName("_id") val id: String?,
+    @SerializedName("basket") val basket: List<ResponseBasket>?,
+    @SerializedName("total") val total: Int?,
+    @SerializedName("Delivery") val delivery: String?
+) : Parcelable, IResponseData

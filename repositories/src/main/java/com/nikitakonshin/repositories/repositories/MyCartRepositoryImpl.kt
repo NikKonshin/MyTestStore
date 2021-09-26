@@ -15,7 +15,7 @@ class MyCartRepositoryImpl(private val dataSource: RemoteDataSource) :
 
     private fun mapToCart(response: List<ResponseCart>): Cart {
         val responseCart = response[0]
-        val basket = mapToListBasket(responseCart.basket)
+        val basket = responseCart.basket?.let { mapToListBasket(it) }
         return Cart(
             id = responseCart.id,
             basket = basket,
@@ -27,6 +27,7 @@ class MyCartRepositoryImpl(private val dataSource: RemoteDataSource) :
     private fun mapToListBasket(rBasket: List<ResponseBasket>): List<Basket> =
         rBasket.map { responseBasket ->
             Basket(
+                id = rBasket.indexOf(responseBasket),
                 images = responseBasket.images,
                 title = responseBasket.title,
                 price = responseBasket.price

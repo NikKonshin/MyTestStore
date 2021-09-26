@@ -15,6 +15,24 @@
     <string name="brand">Brand</string>
     <string name="size">Size</string>
     <string name="price">Price</string>
+    <string name="product_details">Product Details</string>
+    <string name="shop">Shop</string>
+    <string name="details">Details</string>
+    <string name="features">Features</string>
+    <string name="checkout">Checkout</string>
+    <string name="delivery">Delivery</string>
+    <string name="total">Total</string>
+    <string name="my_cart">My Cart</string>
+    <string name="select_color_and_capacity">Select color and capacity</string>
+    <string name="category_phones">Phones</string>
+    <string name="category_computers">Computers</string>
+    <string name="category_heals">Heals</string>
+    <string name="category_books">Books</string>
+    <string name="add_to_my_cart">Add to Cart</string>
+    <string name="add_address">Add address</string>
+    <string name="ecommerce_concept">Ecommerce Concept</string>
+    <string name="count_basket">2</string>
+    <string name="search">Search</string>
 
     <string-array name="brand_phone_array">
         <item>Samsung</item>

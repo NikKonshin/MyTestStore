@@ -3,16 +3,21 @@ package com.nikitakonshin.repositories.repositories
 import com.nikitakonshin.model.entities.local.productdetails.ProductDetails
 import com.nikitakonshin.model.entities.responce.productdetails.ResponseProductDetails
 import com.nikitakonshin.repositories.data_source.RemoteDataSource
+import com.nikitakonshin.repositories.local_data_source.LocalDataSource
 
-class ProductDetailsRepositoryImpl(private val dataSource: RemoteDataSource) :
+class ProductDetailsRepositoryImpl(private val dataSource: RemoteDataSource,private val  localDataSource: LocalDataSource<ProductDetails>) :
     ProductDetailsRepository {
 
-    override suspend fun getProductDetails(): ProductDetails {
+    override suspend fun getProductDetails(id: String): ProductDetails? {
         val listResponseProductDetails = dataSource.getProductDetails()
-        return mapToListProductDetails(listResponseProductDetails)
+        val samsungGalaxyNote = mapToProductDetails(listResponseProductDetails)
+        localDataSource.addData("111", samsungGalaxyNote)
+        localDataSource.addData("3333", samsungGalaxyNote)
+
+        return localDataSource.getData(id)
     }
 
-    private fun mapToListProductDetails(response: List<ResponseProductDetails>): ProductDetails {
+    private fun mapToProductDetails(response: List<ResponseProductDetails>): ProductDetails {
         val responseProductDetails = response[0]
         return ProductDetails(
             id = responseProductDetails.id,

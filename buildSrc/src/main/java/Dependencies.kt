@@ -38,6 +38,9 @@ object Versions {
 
     //Cicerone
     const val cicerone = "6.6"
+
+    // Discrete ScrollView
+    const val discreteScrollView = "1.5.1"
 }
 
 object Kotlin {
@@ -60,6 +63,10 @@ object Tests {
     const val junit = "junit:junit:${Versions.jUnit}"
     const val ext = "androidx.test.ext:junit:${Versions.ext}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+}
+
+object DiscreteScrollView {
+    const val discreteScrollView = "com.yarolegovich:discrete-scrollview:${Versions.discreteScrollView}"
 }
 
 object Retrofit {
@@ -87,6 +94,7 @@ object Modules {
     const val model = ":model"
     const val repositories = ":repositories"
     const val core = ":core"
+    const val utils = ":utils"
 }
 
 object Config {
@@ -105,9 +113,7 @@ object ViewBindingLibrary {
         "com.github.kirich1409:viewbindingpropertydelegate:${Versions.viewBinding}"
 }
 
-
 object Glide {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
-
 }

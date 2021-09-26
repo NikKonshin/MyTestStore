@@ -7,31 +7,32 @@ import com.nikitakonshin.model.entities.local.ILocalData
 import com.nikitakonshin.model.state.AppState
 import kotlinx.coroutines.*
 
-abstract class BaseViewModel<T: ILocalData> : ViewModel() {
+abstract class BaseViewModel<T : ILocalData> : ViewModel() {
 
     protected val _liveData = MutableLiveData<AppState<T>>()
     val liveData: LiveData<AppState<T>> = _liveData
 
     private val viewModelCoroutineScope =
         CoroutineScope(
-            Dispatchers.Main
+            Dispatchers.IO
                     + SupervisorJob()
                     + CoroutineExceptionHandler { _, error ->
+                _liveData.postValue(AppState.Error(error))
             }
         )
 
-    fun cancelJob(){
+    fun cancelJob() {
         viewModelCoroutineScope.coroutineContext.cancelChildren()
     }
 
-    protected fun runAsync(block: suspend () -> Unit){
+    protected fun runAsync(block: suspend () -> Unit) {
         viewModelCoroutineScope.launch {
             block()
         }
     }
 
-    protected fun showLoading(){
-        _liveData.value = AppState.Loading()
+    protected fun showLoading() {
+        _liveData.postValue(AppState.Loading())
     }
 
     override fun onCleared() {

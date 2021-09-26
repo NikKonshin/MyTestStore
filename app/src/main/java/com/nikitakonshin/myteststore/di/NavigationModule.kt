@@ -19,5 +19,6 @@ val navigationModule = module {
     factory<ProductDetailsNavigator> { ProductDetailsNavigatorImpl(get(), get()) }
     factory<MyCartNavigator> { MyCartNavigatorImpl(get(), get()) }
     factory<MainScreenNavigator> { MainScreenNavigatorImpl(get(), get()) }
-
+    factory<MainNavigator> { MainNavigatorImpl(get(), get()) }
+    factory<SplashNavigator> { SplashNavigatorImpl(get(), get()) }
 }

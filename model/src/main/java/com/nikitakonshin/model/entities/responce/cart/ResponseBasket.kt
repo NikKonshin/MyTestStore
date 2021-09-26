@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class ResponseBasket(
-    @SerializedName("images") val images : String,
-    @SerializedName("title") val title : String,
-    @SerializedName("price") val price : Int
-):Parcelable, IResponseData
+    @SerializedName("image") val images: String?,
+    @SerializedName("title") val title: String?,
+    @SerializedName("price") val price: Int?
+) : Parcelable, IResponseData
