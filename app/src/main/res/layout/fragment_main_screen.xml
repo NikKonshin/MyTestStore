@@ -74,6 +74,7 @@
                 <TextView
                     android:id="@+id/tv_see_more_select_category"
                     style="@style/SeeMoreTextViewFragmentMainScreenStyle"
+                    android:text="@string/view_all"
                     app:layout_constraintBottom_toTopOf="@id/barrier_see_more_select_category"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_select_category" />

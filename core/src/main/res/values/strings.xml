@@ -33,6 +33,7 @@
     <string name="ecommerce_concept">Ecommerce Concept</string>
     <string name="count_basket">2</string>
     <string name="search">Search</string>
+    <string name="view_all">view all</string>
 
     <string-array name="brand_phone_array">
         <item>Samsung</item>
