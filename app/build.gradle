@@ -10,6 +10,10 @@ dependencies {
     implementation project(Modules.repositories)
     implementation project(Modules.core)
     implementation project(Modules.utils)
+    implementation project(Modules.splashScreen)
+    implementation project(Modules.myCart)
+    implementation project(Modules.productDetails)
+    implementation project(Modules.mainScreen)
 
     implementation Kotlin.core
     implementation Kotlin.stdlib

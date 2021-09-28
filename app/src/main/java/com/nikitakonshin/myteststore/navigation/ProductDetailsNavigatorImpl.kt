@@ -1,6 +1,7 @@
 package com.nikitakonshin.myteststore.navigation
 
 import com.github.terrakok.cicerone.Router
+import com.nikitakonshin.feature_product_details.presentation.navigation.ProductDetailsNavigator
 
 class ProductDetailsNavigatorImpl(
     private val screens: Screens,

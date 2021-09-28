@@ -95,6 +95,10 @@ object Modules {
     const val repositories = ":repositories"
     const val core = ":core"
     const val utils = ":utils"
+    const val mainScreen = ":feature-main-screen"
+    const val productDetails = ":feature-product-details"
+    const val splashScreen = ":feature-splash-screen"
+    const val myCart = ":feature-my-cart"
 }
 
 object Config {

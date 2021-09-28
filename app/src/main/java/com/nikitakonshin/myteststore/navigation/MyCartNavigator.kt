@@ -1,3 +1,0 @@
-package com.nikitakonshin.myteststore.navigation
-
-interface MyCartNavigator: BaseNavigator
