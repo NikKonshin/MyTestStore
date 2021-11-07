@@ -77,7 +77,7 @@ object Retrofit {
     const val loggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
 
-    const val gson = "com.google.code.gson:gson:2.8.5"
+    const val gson = "com.google.code.gson:gson:2.8.9"
 }
 
 object Koin {

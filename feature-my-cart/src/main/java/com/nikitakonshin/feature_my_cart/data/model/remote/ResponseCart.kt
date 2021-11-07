@@ -1,4 +1,4 @@
-package com.nikitakonshin.model.entities.responce.cart
+package com.nikitakonshin.feature_my_cart.data.model.remote
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

@@ -1,12 +1,12 @@
-package com.nikitakonshin.repositories.repositories
+package com.nikitakonshin.feature_my_cart.data
 
-import com.nikitakonshin.model.entities.local.cart.Basket
-import com.nikitakonshin.model.entities.local.cart.Cart
-import com.nikitakonshin.model.entities.responce.cart.ResponseBasket
-import com.nikitakonshin.model.entities.responce.cart.ResponseCart
-import com.nikitakonshin.repositories.data_source.RemoteDataSource
+import com.nikitakonshin.feature_my_cart.data.model.local.Basket
+import com.nikitakonshin.feature_my_cart.data.model.local.Cart
+import com.nikitakonshin.feature_my_cart.data.model.remote.ResponseBasket
+import com.nikitakonshin.feature_my_cart.data.model.remote.ResponseCart
+import com.nikitakonshin.feature_my_cart.domain.MyCartRepository
 
-class MyCartRepositoryImpl(private val dataSource: RemoteDataSource) :
+class MyCartRepositoryImpl(private val dataSource: MyCartRemoteDataSource) :
     MyCartRepository {
     override suspend fun getCart(): Cart {
         val listResponseCart = dataSource.getMyCart()

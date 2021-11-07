@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.nikitakonshin.feature_my_cart.presentation.adapter.dif_util.BasketDifUtil
+import com.nikitakonshin.feature_my_cart.data.model.local.Basket
 import com.nikitakonshin.feature_my_cart.databinding.ItemRvMyCartBinding
-import com.nikitakonshin.model.entities.local.cart.Basket
+import com.nikitakonshin.feature_my_cart.presentation.adapter.dif_util.BasketDifUtil
 import com.nikitakonshin.repositories.image_loader.ImageLoader
 import com.nikitakonshin.utills.parseIntToPriceForItemMyCart
 

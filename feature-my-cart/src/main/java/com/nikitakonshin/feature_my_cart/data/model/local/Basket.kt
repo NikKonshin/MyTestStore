@@ -1,4 +1,4 @@
-package com.nikitakonshin.model.entities.local.cart
+package com.nikitakonshin.feature_my_cart.data.model.local
 
 import com.nikitakonshin.model.entities.local.ILocalData
 

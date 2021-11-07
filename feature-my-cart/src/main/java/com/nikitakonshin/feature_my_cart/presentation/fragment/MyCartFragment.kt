@@ -8,7 +8,7 @@ import com.nikitakonshin.feature_my_cart.R
 import com.nikitakonshin.feature_my_cart.presentation.adapter.CartAdapter
 import com.nikitakonshin.feature_my_cart.databinding.FragmentMyCartBinding
 import com.nikitakonshin.feature_my_cart.presentation.view_model.MyCartViewModel
-import com.nikitakonshin.model.entities.local.cart.Cart
+import com.nikitakonshin.feature_my_cart.data.model.local.Cart
 import com.nikitakonshin.repositories.image_loader.ImageLoader
 import com.nikitakonshin.utills.parseIntToPriceForMyCart
 import org.koin.android.ext.android.inject
@@ -55,7 +55,7 @@ class MyCartFragment :
         initView(data)
     }
 
-    private fun initView(data: Cart){
+    private fun initView(data: Cart) {
         data.basket?.let { adapter?.submitList(it) }
         with(viewBinding.bottomSheetMyCart) {
             tvTotalValueMyCart.text = parseIntToPriceForMyCart(data.total ?: 0)

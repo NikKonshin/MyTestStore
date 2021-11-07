@@ -1,8 +1,8 @@
-package com.nikitakonshin.model.entities.responce.cart
+package com.nikitakonshin.feature_my_cart.data.model.remote
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import com.nikitakonshin.model.entities.responce.IResponseData
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

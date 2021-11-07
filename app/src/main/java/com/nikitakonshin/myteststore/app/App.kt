@@ -1,6 +1,7 @@
 package com.nikitakonshin.myteststore.app
 
 import android.app.Application
+import com.nikitakonshin.feature_my_cart.myCartModule
 import com.nikitakonshin.myteststore.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -18,7 +19,8 @@ class App:  Application(){
                 interactorModule,
                 ciceroneModule,
                 navigationModule,
-                imageModule
+                imageModule,
+                myCartModule
                 )
         }
     }
